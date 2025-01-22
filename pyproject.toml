@@ -1,0 +1,61 @@
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+[project]
+name = "curlpyconvert"
+version = "4.1.6"
+description = "Convert curl commands to Python code for Grab/Context frameworks"
+readme = "README.md"
+requires-python = ">= 3.10.11"
+authors = [
+    {name = "tadeas.fort", email = "business@tadeasfort.com"},
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+dependencies = [
+    "pyperclip>=1.9.0",
+    "typer>=0.15.1",
+    "rich>=13.9.4",
+    "six>=1.17.0",
+    "prompt-toolkit>=3.0.50",
+    "catppuccin[pygments]>=2.3.4",
+    "pygments>=2.19.1",
+]
+
+[project.urls]
+Homepage = "https://gitlab.skypicker.com/tadeas.fort/curlpyconvert"
+Repository = "https://gitlab.skypicker.com/tadeas.fort/curlpyconvert"
+
+[project.scripts]
+curlpyconvert = "curlpyconvert.main:app"
+curl2py = "curlpyconvert.main:curl2py"
+c2py = "curlpyconvert.main:curl2py"
+curl2ctx = "curlpyconvert.main:curl2ctx"
+curl2grab = "curlpyconvert.main:curl2grab"
+curl2dog = "curlpyconvert.main:curl2dog"
+
+[tool.pdm.build]
+includes = ["src/curlpyconvert"]
+package-dir = "src"
+
+[tool.pytest.ini_options]
+testpaths = ["src/curlpyconvert/test"]
+python_files = ["test_*.py"]
+addopts = "-v --cov=curlpyconvert"
+
+[tool.rye]
+managed = true
+dev-dependencies = [
+    "pytest>=8.3.4",
+    "pytest-cov>=6.0.0",
+]

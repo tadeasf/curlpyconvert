@@ -1,0 +1,15 @@
+# python generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# venv
+.venv
+.coverage
+data
+src/curlpyconvert/.DS_Store
+src/.DS_Store
+.DS_Store

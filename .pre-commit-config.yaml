@@ -1,0 +1,11 @@
+repos:
+-   repo: local
+    hooks:
+    -   id: increment-version
+        name: Increment Version
+        entry: python .pre-commit-hooks/increment_version.py
+        language: python
+        files: ^pyproject\.toml$
+        pass_filenames: false
+        stages: [commit]
+        always_run: true 
